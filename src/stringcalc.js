@@ -1,7 +1,12 @@
 function Add(numbers)
 {
-	if(numbers === ''){	
+	if(numbers === '')
+	{	
 		return 0;	
+	}
+	if (numbers = parseInt(numbers))
+	{
+		return parseInt(numbers);
 	}
 }
 
