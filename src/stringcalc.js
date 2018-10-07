@@ -6,14 +6,23 @@ function Add(numbers)
 	}
 	if(numbers.includes(","))
 	{
-		var first = parseInt(numbers.charAt(0));
-		var second = parseInt(numbers.charAt(2));
-		return parseInt(first + second);
+		var inputNumbers = numbers.split(",");
+		return ArrayOfNumbers(inputNumbers);
 	}
 	else if(numbers = parseInt(numbers))
 	{
 		return parseInt(numbers);
 	}
+}
+
+function ArrayOfNumbers(inputNumbers)
+{
+	var totalnumbers = 0;
+	for(var i = 0; i < inputNumbers.length; i++)
+	{
+		totalnumbers = totalnumbers + parseInt(inputNumbers[i]);
+	}
+	return totalnumbers;
 }
 
 module.exports =  Add;

@@ -11,3 +11,8 @@ test("returns a number if string is only a one number", () => {
 test("returns the sum of two given numbers", ()	=> {
 	expect(Add("1,2")).toEqual(3);
 });
+
+
+test("returns the sum of all given numbers", ()	=> {
+	expect(Add("1,2,3")).toEqual(6);
+});
