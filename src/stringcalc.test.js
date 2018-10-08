@@ -16,3 +16,18 @@ test("returns the sum of two given numbers", ()	=> {
 test("returns the sum of all given numbers", ()	=> {
 	expect(Add("1,2,3")).toEqual(6);
 });
+
+
+test("returns the sum of all given numbers, with newline", ()	=> {
+	expect(Add("1\n2,3")).toEqual(6);
+});
+
+test("returns exception if numbers are negatives", ()	=> {
+	expect(() => { Add("-1, 2");
+	}).toThrowError("NegativeNumbersException");
+});
+
+test("returns exception if numbers are negatives", ()	=> {
+	expect(() => { Add("-1,-4,3,-5");
+	}).toThrowError("NegativeNumbersException");
+});
