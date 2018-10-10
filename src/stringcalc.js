@@ -1,54 +1,70 @@
 function Add(numbers)
-{
+{	
+
+	var StringNumbers = Split(numbers);
+
 	if(numbers === '')
 	{	
 		return 0;	
 	}
-	if(parseInt(numbers) < 0 )
+	else if(parseInt(numbers) < 0 )
 	{	
-
 		throw NegativeNumbersException("negativenumbers are not allowed");
 
 	}
-
-
-	if(numbers.includes(",") && !numbers.includes("\n"))
-	{
-		var inputNumbers = numbers.split(",");
-		return ArrayOfNumbers(inputNumbers);
-	}
-
-	if(numbers.includes("\n")  &&  numbers.includes(","))
-	{
-		var oldLine = numbers.split("\n");
-		oldLine = ArrayOfNumbers(oldLine);
-		var nextLineNumbers = numbers.split(",");
-		nextLineNumbers = ArrayOfNumbers(nextLineNumbers);
-		return parseInt(oldLine + nextLineNumbers) - 1;
-		/*var inputNumbers = numbers.split("
-		var firstLineNumbers = ArrayOfNumbers(inputNumbers);
-		return ArrayOfNumbers(firstLineNumbers);*/
-		
-	}
-
-	else if(numbers = parseInt(numbers))
+	else if(StringNumbers.length <= 1)
 	{
 		return parseInt(numbers);
+	}	
+	else
+	{
+		return Sum(StringNumbers);
 	}
+			
 }
 
-function ArrayOfNumbers(inputNumbers)
-{
+function Split(numbers)
+{	
+	/*
+	if(numbers.includes(",") || numbers.includes("\n") )
+	{
+		return numbers.split('/,|\n/');
+	}
+	else */ 
+
+	if(numbers.includes("\n") && numbers.includes(","))
+	{
+		//numbers.split(',')
+		//numbers.split('\n');
+		
+		return numbers.split('\n') ;
+
+	}
+	else if(numbers.includes(",") && !numbers.includes("\n"))
+	{
+		return numbers.split(",");
+	}
+
+	else
+	{
+		return numbers;	
+	}
+	
+		
+}
+
+function Sum(inputNumbers)
+{	
 	var totalnumbers = 0;
 	for(var i = 0; i < inputNumbers.length; i++)
-	{
-		totalnumbers = totalnumbers + parseInt(inputNumbers[i]);
+	{	  
+		if(parseInt(inputNumbers[i]) <= 1000){
+            totalnumbers = totalnumbers + parseInt(inputNumbers[i]);
+        }
 		 
 	}
-	return totalnumbers;
+	return totalnumbers
+		
 }
-
-
-
 
 module.exports =  Add;

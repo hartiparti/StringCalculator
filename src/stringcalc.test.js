@@ -31,3 +31,8 @@ test("returns exception if numbers are negatives", ()	=> {
 	expect(() => { Add("-1,-4,3,-5");
 	}).toThrowError("NegativeNumbersException");
 });
+
+
+test("ignores all numbers higer than 1000", ()	=> {
+	expect(Add("1001,2")).toEqual(2);
+});
