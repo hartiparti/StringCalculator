@@ -36,3 +36,13 @@ test("returns exception if numbers are negatives", ()	=> {
 test("ignores all numbers higer than 1000", ()	=> {
 	expect(Add("1001,2")).toEqual(2);
 });
+
+
+test("Allow the Add method to handle a different delimiter", () => {
+	expect(Add("//;\n1;2")).toEqual(3);
+});
+
+
+test("Test if numbers are negatives, and should return what numbers are negatives", ()	=> {
+	expect(Add("-1,-4,3,-5")).toBe("Negatives not allowed: -1,-4,-5");
+});
